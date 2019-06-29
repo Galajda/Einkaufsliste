@@ -9,23 +9,53 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-        <activity android:name=".LadenBearbeiten"
-                android:label="Laden bearbeiten"
-                android:theme="@style/Base.V21.Theme.AppCompat.Light.Dialog">
+        <activity
+                android:name=".WarenBearbeiten"
+                android:label="Ware bearbeiten"
+                android:theme="@style/DialogStyle">
             <intent-filter>
-                <action android:name="com.cogimag.michalg.einkaufsliste.LadenBearbeiten" />
+                <action android:name="com.cogimag.michalg.einkaufsliste.WarenBearbeiten"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity
+                android:name=".WareHinzufuegen"
+                android:label="Ware hinzufügen"
+                android:theme="@style/DialogStyle">
+            <intent-filter>
+                <action android:name="com.cogimag.michalg.einkaufsliste.WareHinzufuegen"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity
+                android:name=".LadenBearbeiten"
+                android:label="Laden bearbeiten"
+                android:theme="@style/DialogStyle">
+
+            <!--
+                 android:theme="@style/DialogTheme"
+                android:theme="@style/Base.V21.Theme.AppCompat.Light.Dialog"
+            -->
+            <intent-filter>
+                <action android:name="com.cogimag.michalg.einkaufsliste.LadenBearbeiten"/>
 
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
 
-
-
+            <!-- android:theme="@style/Base.V21.Theme.AppCompat.Light.Dialog" -->
 
         </activity>
         <activity
                 android:name=".LadenHinzufuegen"
                 android:label="Laden hinzufügen"
-                android:theme="@style/Base.V21.Theme.AppCompat.Light.Dialog">
+                android:theme="@style/DialogStyle">
+
+            <!--
+                android:theme="@style/Base.V21.Theme.AppCompat.Light.Dialog"
+                android:theme="@style/DialogTheme"
+            -->
             <intent-filter>
                 <action android:name="com.cogimag.michalg.einkaufsliste.LadenHinzufuegen"/>
 

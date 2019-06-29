@@ -3,12 +3,15 @@ package com.cogimag.michalg.einkaufsliste
 import android.content.Context
 
 import android.util.AttributeSet
+import android.util.Log
 import android.view.GestureDetector
 import android.view.MotionEvent
 import android.widget.*
 
 abstract class BasisRvItemLayout(context: Context, attributeSet: AttributeSet):FrameLayout(context,attributeSet)  {
-
+    companion object {
+        val CLASS_LOG_TAG = "BasisRvItemLayout"
+    }
 
 
     val gestureDetector:GestureDetector
@@ -61,19 +64,30 @@ abstract class BasisRvItemLayout(context: Context, attributeSet: AttributeSet):F
         hintergrundBreiteMessen()
     }
     override fun onInterceptTouchEvent(ev: MotionEvent?): Boolean {
-        val preventClickOnHintergrund:Boolean = !( hintergrundSichtbar() and tapOnHintergrund(ev!!) )
+        var preventClickOnHintergrund:Boolean = true
+        if (ev != null) preventClickOnHintergrund =  !( hintergrundSichtbar() and tapOnHintergrund(ev) )
+
 //        Log.i(AppConstants.APP_LOG_TAG, classLogTag + " onInterceptTouchEvent prevent = " + preventClickOnHintergrund)
-        return preventClickOnHintergrund
+        val preventClickOnVordergrund:Boolean = hintergrundSichtbar() // or (ev!!.action == MotionEvent.ACTION_MOVE)
+//        Log.i(AppKonstante.APP_LOG_TAG, "$CLASS_LOG_TAG intercept touch event of type " + MotionEvent.actionToString(ev.action))
+//        Log.i(AppKonstante.APP_LOG_TAG, "$CLASS_LOG_TAG intercept touch event returns " + (preventClickOnHintergrund ))
+                //and !preventClickOnVordergrund and preventClickOnVordergrund
+
+        return preventClickOnHintergrund //and preventClickOnVordergrund
         //false allows event to pass to child's touch handler
         //true sends event to onTouchEvent below
+//        return false
     }
 
     override fun onTouchEvent(event: MotionEvent?): Boolean {
-//        Log.i(AppConstants.APP_LOG_TAG, classLogTag + " onTouchEvent type " + MotionEvent.actionToString(event!!.action) )
+//        Log.i(AppKonstante.APP_LOG_TAG, CLASS_LOG_TAG + " onTouchEvent type " + MotionEvent.actionToString(event!!.action) )
         return gestureDetector.onTouchEvent(event)
     }
 
-
+    fun singleTap(event: MotionEvent) {
+//        Log.i(AppKonstante.APP_LOG_TAG, "$CLASS_LOG_TAG single tap ")
+        if (!hintergrundSichtbar()) vordergrund.performClick()
+    }
 
     fun swipe(touchDown:MotionEvent, touchUp:MotionEvent) {
 //        val buttonContainer = findViewById<ImageView>(R.id.perez_rv_icon_supprimer)
@@ -129,6 +143,8 @@ abstract class BasisRvItemLayout(context: Context, attributeSet: AttributeSet):F
 
     fun hintergrundSichtbar():Boolean {
 //        return vordergrund.right < vordergrund.measuredWidth - btnDelete.width - btnEdit.width + 20
+//        Log.i(AppKonstante.APP_LOG_TAG, "$CLASS_LOG_TAG hintergrund sichtbar = " +
+//                (vordergrund.right < vordergrund.measuredWidth - hintergrund.measuredWidth + 20))
         return vordergrund.right < vordergrund.measuredWidth - hintergrund.measuredWidth + 20
     }
     fun tapOnHintergrund(event:MotionEvent):Boolean {

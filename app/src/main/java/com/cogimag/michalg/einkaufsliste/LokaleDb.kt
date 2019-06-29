@@ -27,7 +27,7 @@ class LokaleDb(val context:Context) {
         //die Waren
         private const val WAREN_TBL_NAME = "lokalWarenTbl"
         private val PROJECTION_ALLE_WAREN_FELDER =
-            arrayOf(WarenModell.FELD_WAREN_ID + " _id", WarenModell.FELD_WAREN_LADEN, WarenModell.FELD_WAREN_NAME)
+            arrayOf(WarenModell.FELD_WAREN_ID + " _id", WarenModell.FELD_WAREN_LADEN, WarenModell.FELD_WAREN_NAME, WarenModell.FELD_WAREN_MENGE)
     }
 
 
@@ -41,11 +41,16 @@ class LokaleDb(val context:Context) {
     fun insertLadenRecord(ladenModell: LadenModell): Long {
         var newRowId: Long = -1
         val dbHelper = SqliteDbHelper(context)
-        dbHelper.writableDatabase.use {
-            newRowId = it.insert(LADEN_TBL_NAME, null, ladenModell.contentValues())
-            it.close()
+        try {
+            dbHelper.writableDatabase.use {
+                newRowId = it.insert(LADEN_TBL_NAME, null, ladenModell.contentValues())
+                it.close()
+            }
+            dbHelper.close()
         }
-        dbHelper.close()
+        catch (ex: Exception) {
+            Log.e(AppKonstante.APP_LOG_TAG, KLASSE_LOG_TAG + "fehler Laden erstellen " + ex.message)
+        }
         return newRowId
     }
     //read one
@@ -68,7 +73,8 @@ class LokaleDb(val context:Context) {
                 it.close()
             }
             dbHelper.close()
-        } catch (ex: Exception) {
+        }
+        catch (ex: Exception) {
             Log.e(AppKonstante.APP_LOG_TAG, KLASSE_LOG_TAG + "fehler einen Laden ablesen " + ex.message)
         }
         return laden
@@ -88,7 +94,8 @@ class LokaleDb(val context:Context) {
                     //SO 37051197
                     //use get column index
                     do {
-                        val ladenModell:LadenModell = LadenModell(cursor.getLong(0), cursor.getString(1))
+//                        val ladenModell:LadenModell = LadenModell(cursor.getLong(0), cursor.getString(1))
+                        val ladenModell:LadenModell = LadenModell(cursor)
                         ladenModellArrayList.add(ladenModell)
                     }
                     while (cursor.moveToNext())
@@ -97,7 +104,8 @@ class LokaleDb(val context:Context) {
                 it.close()
             }
             dbHelper.close()
-        } catch (ex: Exception) {
+        }
+        catch (ex: Exception) {
             Log.e(AppKonstante.APP_LOG_TAG, KLASSE_LOG_TAG + "fehler alle Läden ablesen " + ex.message)
         }
 //        Log.i(AppKonstante.APP_LOG_TAG, KLASSE_LOG_TAG + " alle laden anzahl " + ladenModellArrayList.size)
@@ -105,7 +113,7 @@ class LokaleDb(val context:Context) {
     }
 
     //update
-    fun ladenVerarbeiten(ladenModell: LadenModell):Int {
+    fun ladenBearbeiten(ladenModell: LadenModell):Int {
         var rowsAffected:Int = -1
         val dbHelper = SqliteDbHelper(context)
         try {
@@ -121,40 +129,134 @@ class LokaleDb(val context:Context) {
             dbHelper.close()
         }
         catch (ex:java.lang.Exception) {
-            Log.e(AppKonstante.APP_LOG_TAG, KLASSE_LOG_TAG + "fehler laden verarbeiten " + ex.message)
+            Log.e(AppKonstante.APP_LOG_TAG, KLASSE_LOG_TAG + "Fehler Laden bearbeiten " + ex.message)
         }
 
         return rowsAffected
     }
     //delete
-    fun deleteLadenRecord(ladenId:Long):Int {
-        var rowAffected:Int = -1
+    fun ladenRecordLoeschen(ladenId:Long):Int {
+        var rowsAffected:Int = -1
         val dbHelper = SqliteDbHelper(context)
         try {
             dbHelper.writableDatabase.use {
                 val sqlWhere:String = LadenModell.FELD_LADEN_ID + "=?"
                 val sqlWhereArgs = Array<String>(1){ladenId.toString()}
-                    rowAffected = it.delete(LADEN_TBL_NAME, sqlWhere, sqlWhereArgs)
+                    rowsAffected = it.delete(LADEN_TBL_NAME, sqlWhere, sqlWhereArgs)
             }
         }
         catch (ex:Exception) {
             Log.e(AppKonstante.APP_LOG_TAG, KLASSE_LOG_TAG + " Fehler Laden löschen " + ex.message)
         }
-        return rowAffected
+        return rowsAffected
 
     }
 
     //Waren Änderungen
     //create
+    fun insertWarenRecord(warenModell: WarenModell): Long {
+        var newRowId: Long = -1
+        val dbHelper = SqliteDbHelper(context)
+        try {
+            dbHelper.writableDatabase.use {
+                newRowId = it.insert(WAREN_TBL_NAME, null, warenModell.contentValues())
+                it.close()
+            }
+            dbHelper.close()
+        }
+        catch (ex: java.lang.Exception) {
+            Log.e(AppKonstante.APP_LOG_TAG, KLASSE_LOG_TAG + "fehler Ware erstellen " + ex.message)
+        }
+        return newRowId
 
+    }
     //read all where laden = param
-
+    fun alleWarenEinesLadens(id:Long): ArrayList<WarenModell> {
+        val warenModellArrayList: ArrayList<WarenModell> = ArrayList()
+        val dbHelper = SqliteDbHelper(context)
+        try {
+            val sqlWhere = "${WarenModell.FELD_WAREN_LADEN} =?"
+            val sqlWhereArgs = arrayOf(id.toString())
+            dbHelper.readableDatabase.use {
+                val cursor: Cursor = it.query(WAREN_TBL_NAME, PROJECTION_ALLE_WAREN_FELDER,
+                    sqlWhere, sqlWhereArgs, null, null, null)
+                if (cursor.moveToFirst()) {
+                    do {
+                        val warenModell: WarenModell = WarenModell(cursor)
+                        warenModellArrayList.add(warenModell)
+                    }
+                        while (cursor.moveToNext())
+                }
+                cursor.close()
+                it.close()
+            }
+            dbHelper.close()
+        }
+        catch (ex: Exception) {
+            Log.e(AppKonstante.APP_LOG_TAG, KLASSE_LOG_TAG + "fehler alle Waren des Ladens " + id + " ablesen " + ex.message)
+        }
+        return warenModellArrayList
+    }
     //read one where id = param
-
+    fun eineWare(id:Long): WarenModell {
+        var ware:WarenModell = WarenModell()
+        val dbHelper = SqliteDbHelper(context)
+        try {
+            dbHelper.readableDatabase.use {
+                val sqlWhere = "${WarenModell.FELD_WAREN_ID} =?"
+                val sqlWhereArgs = arrayOf(id.toString())
+                val cursor:Cursor = it.query(WAREN_TBL_NAME, PROJECTION_ALLE_WAREN_FELDER,
+                    sqlWhere, sqlWhereArgs, null, null, null)
+                if (cursor.moveToFirst()) {
+                    ware = WarenModell(cursor)
+                }
+                cursor.close()
+                it.close()
+            }
+            dbHelper.close()
+        }
+        catch (ex: java.lang.Exception) {
+            Log.e(AppKonstante.APP_LOG_TAG, KLASSE_LOG_TAG + "fehler eine Ware ablesen " + ex.message)
+        }
+        return ware
+    }
     //update
-
+    fun wareBearbeiten(warenModell: WarenModell): Int {
+        Log.i(AppKonstante.APP_LOG_TAG, "$KLASSE_LOG_TAG eine Ware bearbeiten")
+        var rowsAffected: Int = -1
+        val dbHelper = SqliteDbHelper(context)
+        try {
+            dbHelper.writableDatabase.use {
+                val wareContentValues:ContentValues = ContentValues()
+                val sqlWhere = "${WarenModell.FELD_WAREN_ID} =?"
+                val sqlWhereArgs = arrayOf(warenModell.id.toString())
+                rowsAffected = it.update(WAREN_TBL_NAME, warenModell.contentValues(),
+                    sqlWhere, sqlWhereArgs)
+                it.close()
+            }
+            dbHelper.close()
+        }
+        catch (ex:java.lang.Exception) {
+            Log.e(AppKonstante.APP_LOG_TAG, "$KLASSE_LOG_TAG Fehler Ware bearbeiten ${ex.message}")
+        }
+        return rowsAffected
+    }
     //delete
-
+    fun warenRecordLoeschen(wareId:Long):Int {
+        var rowsAffected:Int = -1
+        val dbHelper = SqliteDbHelper(context)
+        try {
+            dbHelper.writableDatabase.use {
+                val sqlWhere:String = "${WarenModell.FELD_WAREN_ID} =?"
+                val sqlWhereArgs = Array<String>(1){wareId.toString()}
+                rowsAffected = it.delete(WAREN_TBL_NAME, sqlWhere, sqlWhereArgs)
+            }
+        }
+        catch (ex:Exception) {
+            Log.e(AppKonstante.APP_LOG_TAG, KLASSE_LOG_TAG + " Fehler Ware löschen " + ex.message)
+        }
+        return rowsAffected
+    }
 
     //db connection class
     private inner class SqliteDbHelper(c: Context) : SQLiteOpenHelper(c, LOCAL_DB_NAME, null, LOCAL_DB_VERSION) {

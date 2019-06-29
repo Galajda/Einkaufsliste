@@ -18,11 +18,8 @@ class LadenBearbeiten : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_laden_bearbeiten)
 
-
-        val ladenZumAndern: Intent = intent
-
         val tvId:TextView = findViewById(R.id.laden_bearbeiten_txt_laden_id)
-        val ladenId:Long = ladenZumAndern.getLongExtra(LadenModell.FELD_LADEN_ID, 0)
+        val ladenId:Long = intent.getLongExtra(LadenModell.FELD_LADEN_ID, 0)
         tvId.text = ladenId.toString()
         //get laden name from db
         val tvName:TextView = findViewById(R.id.laden_bearbeiten_txt_laden_alter_name)
@@ -50,10 +47,11 @@ class LadenBearbeiten : AppCompatActivity() {
         val geanderterLaden = LadenModell(ladenId,neuerName)
 
         val dbUtility = LokaleDb(this)
-        val rowsAffected:Int = dbUtility.ladenVerarbeiten(geanderterLaden)
+        val rowsAffected:Int = dbUtility.ladenBearbeiten(geanderterLaden)
         if (rowsAffected > 0) finish()
         else {
             Log.e(AppKonstante.APP_LOG_TAG, KLASSE_LOG_TAG + " fehler laden bearbeiten")
+            //snackbar
         }
     }
 

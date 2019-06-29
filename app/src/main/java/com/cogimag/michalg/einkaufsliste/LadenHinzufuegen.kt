@@ -20,8 +20,8 @@ class LadenHinzufuegen : AppCompatActivity() {
     }
 
 
-    fun btn_laden_eingeben_Click(view: View) {
-//        Log.i(AppKonstante.APP_LOG_TAG, CLASS_LOG_TAG + "btn_laden_eingeben_Click")
+    fun btnLadenEingebenClick(view: View) {
+//        Log.i(AppKonstante.APP_LOG_TAG, CLASS_LOG_TAG + "btnLadenEingebenClick")
         //db utility
         val dbUtility:LokaleDb = LokaleDb(this)
         val ladenEingabe: EditText = findViewById(R.id.laden_hinzufügen_txt_name)
@@ -40,7 +40,7 @@ class LadenHinzufuegen : AppCompatActivity() {
 
     }
 
-    fun btn_laden_hinzufügen_abbrechen_Click(view: View) {
+    fun btnLadenHinzufuegenAbbrechenClick(view: View) {
         finish()
     }
 

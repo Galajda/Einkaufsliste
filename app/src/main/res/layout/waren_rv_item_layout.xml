@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.cogimag.michalg.einkaufsliste.LadenRvItemLayout
+<com.cogimag.michalg.einkaufsliste.WarenRvItemLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="@dimen/rv_item_höhe">
-<!-- dieses Element leitet von der Frame Layout ab -->
-
+    <!-- dieses Element leitet von der Frame Layout ab -->
 
     <!-- hintergrund -->
     <RelativeLayout
-            android:id="@+id/laden_rv_layout_hintergrund"
+            android:id="@+id/waren_rv_layout_hintergrund"
             android:layout_width="1dp"
             android:layout_height="50dp"
             android:layout_gravity="end"
@@ -18,32 +17,32 @@
         <!-- these serve as buttons on the background
         prefer image view to image button?  -->
         <ImageView
-                android:id="@+id/laden_rv_layout_hintergrund_btn_bearbeiten"
+                android:id="@+id/waren_rv_layout_hintergrund_btn_bearbeiten"
                 android:layout_width="40dp"
                 android:minWidth="40dp"
                 android:layout_height="40dp"
-                android:layout_toStartOf="@id/laden_rv_layout_hintergrund_btn_loeschen"
+                android:layout_toStartOf="@id/waren_rv_layout_hintergrund_btn_loeschen"
                 android:contentDescription="Edit button"
                 android:src="@android:drawable/ic_menu_edit">
 
-            <tag android:id="@+id/laden_rv_layout_hintergrund_btn_bearbeiten_tag_list_position"
+            <tag android:id="@+id/waren_rv_layout_hintergrund_btn_bearbeiten_tag_list_position"
                  android:value="-1"/>
-            <tag android:id="@+id/laden_rv_layout_hintergrund_btn_bearbeiten_tag_laden_id"
+            <tag android:id="@+id/waren_rv_layout_hintergrund_btn_bearbeiten_tag_waren_id"
                  android:value="-1"/>
         </ImageView>
 
         <ImageView
-                android:id="@+id/laden_rv_layout_hintergrund_btn_loeschen"
+                android:id="@+id/waren_rv_layout_hintergrund_btn_loeschen"
                 android:layout_width="40dp"
                 android:minWidth="40dp"
                 android:layout_height="40dp"
                 android:layout_alignParentEnd="true"
                 android:contentDescription="Delete button"
                 android:src="@android:drawable/ic_delete">
-            <tag android:id="@+id/laden_rv_layout_hintergrund_btn_loeschen_tag_list_position"
+            <tag android:id="@+id/waren_rv_layout_hintergrund_btn_loeschen_tag_list_position"
                  android:value="-1">
             </tag>
-            <tag android:id="@+id/laden_rv_layout_hintergrund_btn_loeschen_tag_laden_id"
+            <tag android:id="@+id/waren_rv_layout_hintergrund_btn_loeschen_tag_waren_id"
                  android:value="-1">
             </tag>
         </ImageView>
@@ -52,40 +51,38 @@
 
     <!-- vordergrund -->
     <RelativeLayout
-            android:id="@+id/laden_rv_layout_vordergrund"
+            android:id="@+id/waren_rv_layout_vordergrund"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:background="#cccccc"
 
             android:layout_gravity="center_horizontal">
-        <tag android:id="@+id/laden_rv_layout_vordergrund_tag_list_position"
+        <tag android:id="@+id/waren_rv_layout_vordergrund_tag_list_position"
              android:value="-1" />
-        <tag android:id="@+id/laden_rv_layout_vordergrund_tag_db_id"
+        <tag android:id="@+id/waren_rv_layout_vordergrund_tag_db_id"
              android:value="-1"/>
 
         <TextView
-                android:id="@+id/laden_rv_layout_vordergrund_list_position"
+                android:id="@+id/waren_rv_layout_vordergrund_list_position"
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
                 android:visibility="gone"
                 android:layout_alignParentStart="true"
                 android:text="list position"/>
         <TextView
-                android:id="@+id/laden_rv_layout_vordergrund_item_name"
+                android:id="@+id/waren_rv_layout_vordergrund_item_name"
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
-                android:layout_toEndOf="@id/laden_rv_layout_vordergrund_list_position"
+                android:layout_toEndOf="@id/waren_rv_layout_vordergrund_list_position"
                 android:text="Name"/>
         <TextView
-                android:id="@+id/laden_rv_layout_vordergrund_item_db_id"
+                android:id="@+id/waren_rv_layout_vordergrund_item_db_id"
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
                 android:visibility="gone"
-                android:layout_toEndOf="@id/laden_rv_layout_vordergrund_item_name"
+                android:layout_toEndOf="@id/waren_rv_layout_vordergrund_item_name"
                 android:text="ID"/>
 
     </RelativeLayout>
 
-
-
-</com.cogimag.michalg.einkaufsliste.LadenRvItemLayout>
+</com.cogimag.michalg.einkaufsliste.WarenRvItemLayout>

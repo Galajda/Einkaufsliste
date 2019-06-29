@@ -28,15 +28,20 @@ class LadenRvAdapter(val dataset:ArrayList<LadenModell>, val clickListener: OnCl
         holder.itemView.laden_rv_layout_vordergrund_list_position.text = position.toString()
         holder.itemView.laden_rv_layout_vordergrund_item_name.text = laden.name
         holder.itemView.laden_rv_layout_vordergrund_item_db_id.text = laden.id.toString()
+        holder.itemView.laden_rv_layout_vordergrund.setTag(R.id.laden_rv_layout_vordergrund_tag_list_position, position)
+        holder.itemView.laden_rv_layout_vordergrund.setTag(R.id.laden_rv_layout_vordergrund_tag_db_id, laden.id)
+
         holder.itemView.laden_rv_layout_hintergrund_btn_loeschen.setTag(R.id.laden_rv_layout_hintergrund_btn_loeschen_tag_list_position, position)
         holder.itemView.laden_rv_layout_hintergrund_btn_loeschen.setTag(R.id.laden_rv_layout_hintergrund_btn_loeschen_tag_laden_id, laden.id)
         holder.itemView.laden_rv_layout_hintergrund_btn_bearbeiten.setTag(R.id.laden_rv_layout_hintergrund_btn_bearbeiten_tag_list_position, position)
         holder.itemView.laden_rv_layout_hintergrund_btn_bearbeiten.setTag(R.id.laden_rv_layout_hintergrund_btn_bearbeiten_tag_laden_id, laden.id)
+
         //assign listener to individual buttons, not to the hintergrund as a whole
         //find a way to assign listener to hintergrund for simplicity, then get the child in the click listener code
         (0 until holder.itemView.laden_rv_layout_hintergrund.childCount).forEach { i ->
             holder.itemView.laden_rv_layout_hintergrund.getChildAt(i).setOnClickListener(clickListener)
         }
+        holder.itemView.laden_rv_layout_vordergrund.setOnClickListener(clickListener)
     }
 
 

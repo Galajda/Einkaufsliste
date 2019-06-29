@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="rand_freiraum">5dp</dimen>
+    <dimen name="toolbar_höhe">60dp</dimen>
+
+    <!-- height of fragment element in activity must be >= height of fragment layout (including toolbar) -->
+    <dimen name="rv_frag_höhe_in_aktivität">500dp</dimen>
+    <dimen name="rv_frag_höhe">200dp</dimen>
+
+    <dimen name="text_größe">20px</dimen>
+    <dimen name="rv_item_höhe">60dp</dimen>
+</resources>

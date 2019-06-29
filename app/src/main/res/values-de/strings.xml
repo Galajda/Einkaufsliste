@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hello_blank_fragment">Leeres Fragment</string>
+    <string name="aktivitaet_laden_bearbeiten">Aktivität laden bearbeiten</string>
+    <string name="rv_lbl_laden_id">Laden ID:</string>
+    <string name="laden_bearbeiten_ehemaliger_name">Der ehemalige Name:</string>
+    <string name="laden_bearbeiten_neuer_name">Der neue Name:</string>
+    <string name="btn_eingeben">Eingeben</string>
+    <string name="app_name">Einkaufsliste</string>
+    <string name="btn_abbrechen">Abbrechen</string>
+    <string name="laden_hinzufuegen">Laden hinzufügen</string>
+    <string name="name_des_neuen_ladens">Name des neuen Ladens</string>
+    <string name="es_gibt_keine_laeden">Es gibt keine Läden</string>
+    <string name="laden_toolbar_titel">Ihre Läden</string>
+    <string name="wir_gehen_einkaufen">Wir gehen einkaufen!</string>
+    <string name="waren_toolbar_titel">Ihre Waren</string>
+    <string name="es_gibt_keine_waren">Es gibt keine Waren</string>
+    <string name="aktivitaet_waren_bearbeiten">Aktivität Waren bearbeiten</string>
+    <string name="rv_lbl_waren_id">Ware ID</string>
+    <string name="waren_bearbeiten_ehemaliger_name">Der ehemalige Name</string>
+    <string name="waren_bearbeiten_neuer_name">Der neue Name</string>
+    <string name="ware_hinzufuegen">Ware hunzufügen</string>
+    <string name="name_der_neuen_ware">Name der neuen Ware</string>
+    <string name="wieviel">Wieviel?</string>
+</resources>

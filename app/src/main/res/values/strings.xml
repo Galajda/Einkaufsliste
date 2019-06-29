@@ -1,6 +1,25 @@
 <resources>
-    <string name="app_name">Einkaufsliste</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="app_name">Shopping list</string>
+    <string name="aktivitaet_laden_bearbeiten">Edit store activity</string>
+    <string name="rv_lbl_laden_id">Store ID:</string>
+    <string name="laden_bearbeiten_ehemaliger_name">Original name:</string>
+    <string name="laden_bearbeiten_neuer_name">New name:</string>
+    <string name="btn_eingeben">Submit</string>
+    <string name="btn_abbrechen">Cancel</string>
+    <string name="name_des_neuen_ladens">Name of new store</string>
+    <string name="es_gibt_keine_laeden">Es gibt keine Läden</string>
+    <string name="laden_hinzufuegen">Add store</string>
+    <string name="laden_toolbar_titel">Your stores</string>
+    <string name="wir_gehen_einkaufen">Let\'s go shopping!</string>
+    <string name="waren_toolbar_titel">Your merchandise</string>
+    <string name="es_gibt_keine_waren">There is no merchandise</string>
+    <string name="aktivitaet_waren_bearbeiten">Aktivität Waren bearbeiten</string>
+    <string name="rv_lbl_waren_id">Ware ID</string>
+    <string name="waren_bearbeiten_ehemaliger_name">Der ehemalige Name</string>
+    <string name="waren_bearbeiten_neuer_name">Der neue Name</string>
+    <string name="ware_hinzufuegen">Ware hunzufügen</string>
+    <string name="name_der_neuen_ware">Name der neuen Ware</string>
+    <string name="wieviel">Wieviel?</string>
 </resources>

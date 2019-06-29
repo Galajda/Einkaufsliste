@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Liste d\'achats</string>
+    <string name="aktivitaet_laden_bearbeiten">Activité éditer le magasin</string>
+    <string name="laden_bearbeiten_ehemaliger_name">Nom originel:</string>
+    <string name="laden_bearbeiten_neuer_name">Nouveau nom:</string>
+    <string name="rv_lbl_laden_id">No. du magasin:</string>
+    <string name="hello_blank_fragment">Fragment vide</string>
+    <string name="btn_abbrechen">Annuler</string>
+    <string name="btn_eingeben">Enregistrer</string>
+    <string name="es_gibt_keine_laeden">Es gibt keine Läden</string>
+    <string name="laden_hinzufuegen">Ajouter magasin</string>
+    <string name="laden_toolbar_titel">Vos magasins</string>
+    <string name="name_des_neuen_ladens">Nom du magasin neuf</string>
+    <string name="wir_gehen_einkaufen">Allons faire des achats!</string>
+    <string name="waren_toolbar_titel">Vos articles</string>
+    <string name="es_gibt_keine_waren">Il n\'y a pas de marchandises</string>
+    <string name="aktivitaet_waren_bearbeiten">Aktivität Waren bearbeiten</string>
+    <string name="rv_lbl_waren_id">Ware ID</string>
+    <string name="waren_bearbeiten_ehemaliger_name">Der ehemalige Name</string>
+    <string name="waren_bearbeiten_neuer_name">Der neue Name</string>
+    <string name="ware_hinzufuegen">Ware hunzufügen</string>
+    <string name="name_der_neuen_ware">Name der neuen Ware</string>
+    <string name="wieviel">Wieviel?</string>
+</resources>

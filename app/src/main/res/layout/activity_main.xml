@@ -11,11 +11,12 @@
             android:id="@+id/main_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Wir gehen einkaufen!"
+            android:text="@string/wir_gehen_einkaufen"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"/>
     <LinearLayout
+            android:id="@+id/main_frag_container"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
@@ -26,15 +27,37 @@
                 android:id="@+id/main_laden_rv_frag"
                 android:layout_width="0dp"
                 android:layout_weight="0.3"
-                android:layout_height="300dp"
+                android:layout_height="@dimen/rv_frag_höhe_in_aktivität"
                 android:name="com.cogimag.michalg.einkaufsliste.LadenRvFrag" />
 
-        <TextView
+        <!--<TextView-->
+                <!--android:layout_width="0dp"-->
+                <!--android:layout_weight="0.7"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="Waren hier"/>-->
+        <fragment
+                android:id="@+id/main_waren_rv_frag"
                 android:layout_width="0dp"
                 android:layout_weight="0.7"
-                android:layout_height="wrap_content"
-                android:text="Waren hier"/>
+                android:layout_height="@dimen/rv_frag_höhe_in_aktivität"
+                android:name="com.cogimag.michalg.einkaufsliste.WarenRvFrag" />
     </LinearLayout>
-
+    <!--<TextView-->
+            <!--android:id="@+id/main_lbl_vm_test"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--app:layout_constraintTop_toBottomOf="@id/main_frag_container"-->
+            <!--app:layout_constraintStart_toStartOf="parent"-->
+            <!--app:layout_constraintEnd_toEndOf="parent"-->
+            <!--android:text="main activity test view model"/>-->
+    <!--<Button-->
+            <!--android:id="@+id/btn_test_view_model"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--app:layout_constraintTop_toBottomOf="@id/main_lbl_vm_test"-->
+            <!--app:layout_constraintStart_toStartOf="parent"-->
+            <!--app:layout_constraintEnd_toEndOf="parent"-->
+            <!--android:text="show view model id"-->
+            <!--android:onClick="main_btn_test_view_model_Click"/>-->
 
 </android.support.constraint.ConstraintLayout>

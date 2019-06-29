@@ -6,6 +6,22 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:textSize">@dimen/text_größe</item>
+
+        <item name="android:textViewStyle">@style/TvStyle</item>
+
     </style>
+    <style name="DialogStyle" parent="@style/Base.V21.Theme.AppCompat.Light.Dialog">
+        <!--<item name="android:width">200dp</item>-->
+        <!--<item name="android:height">300dp</item>-->
+        <item name="android:layout_width">400dp</item>
+        <item name="android:layout_height">350dp</item>
+        <item name="android:textSize">@dimen/text_größe</item>
+    </style>
+    <style name="TvStyle" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="android:layout_marginLeft">@dimen/rand_freiraum</item>
+        <item name="android:layout_marginRight">@dimen/rand_freiraum</item>
+    </style>
+
 
 </resources>

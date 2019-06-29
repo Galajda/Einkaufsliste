@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        style="@style/DialogStyle"
+        tools:context=".WareHinzufuegen">
+
+    <TextView
+            android:id="@+id/ware_hinzufügen_lbl_titel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:text="@string/ware_hinzufuegen"/>
+    <TextView
+            android:id="@+id/ware_hinzufügen_lbl_laden_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/ware_hinzufügen_lbl_titel"
+            app:layout_constraintStart_toStartOf="parent"
+            android:text="Sie finden diese Ware bei: "/>
+    <TextView
+            android:id="@+id/ware_hinzufügen_tv_laden_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/ware_hinzufügen_lbl_titel"
+            app:layout_constraintStart_toEndOf="@id/ware_hinzufügen_lbl_laden_name"/>
+    <TextView
+            android:id="@+id/ware_hinzufügen_lbl_ware_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/ware_hinzufügen_tv_laden_name"
+            app:layout_constraintStart_toStartOf="parent"
+            android:text="@string/name_der_neuen_ware"/>
+    <EditText
+            android:id="@+id/ware_hinzufügen_txt_name"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ware_hinzufügen_lbl_ware_name"/>
+    <TextView
+            android:id="@+id/ware_hinzufügen_lbl_menge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ware_hinzufügen_txt_name"
+            android:text="@string/wieviel"/>
+    <!-- menge ist jetzt edit text. später spinner-->
+    <EditText
+            android:id="@+id/ware_hinzufügen_spn_menge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@id/ware_hinzufügen_lbl_menge"
+            app:layout_constraintTop_toBottomOf="@id/ware_hinzufügen_txt_name"/>
+
+    <Button
+            android:id="@+id/ware_hinzufügen_btn_ware_eingeben"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ware_hinzufügen_spn_menge"
+            android:text="@string/btn_eingeben"
+            android:onClick="btnWareEingebenClick"
+    />
+    <Button
+            android:id="@+id/ware_hinzufügen_btn_ware_hinzufügen_abbrechen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ware_hinzufügen_spn_menge"
+            android:text="@string/btn_abbrechen"
+            android:onClick="btnWareHinzufuegenAbbrechenClick"/>
+
+
+</android.support.constraint.ConstraintLayout>

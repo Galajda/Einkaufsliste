@@ -1,5 +1,6 @@
 package com.cogimag.michalg.einkaufsliste
 
+import android.util.Log
 import android.view.GestureDetector
 import android.view.MotionEvent
 
@@ -16,8 +17,10 @@ class RvGestureDetector(val itemLayout:BasisRvItemLayout):GestureDetector.Simple
     }
 
     override fun onSingleTapUp(e: MotionEvent?): Boolean {
-//        Log.i(AppKonstante.APP_LOG_TAG, CLASS_LOG_TAG + " onSingleTapUp")
+//        Log.i(AppKonstante.APP_LOG_TAG,  "$CLASS_LOG_TAG onSingleTapUp")
+        itemLayout.singleTap(e!!)
         return true //consume event
+//        return false
     }
 
 
@@ -40,8 +43,8 @@ class RvGestureDetector(val itemLayout:BasisRvItemLayout):GestureDetector.Simple
 //            " e2.x = " + e2.x + " dist 2-1 = " + dist)
         //range of x ~330 (right end) to 0 or lower (left end)
         itemLayout.swipe(e1, e2)
-//        return true //consume event?
-        return false
+        return true //consume event?
+//        return false
     }
 
 

@@ -10,14 +10,14 @@
     <android.support.v7.widget.Toolbar
             android:id="@+id/laden_rv_frag_toolbar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/toolbar_höhe"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             android:background="?attr/colorPrimary">
         <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Laden toolbar"/>
+                android:text="@string/laden_toolbar_titel"/>
     </android.support.v7.widget.Toolbar>
     <TextView
             android:id="@+id/laden_rv_frag_title"
@@ -26,23 +26,41 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/laden_rv_frag_toolbar"
             android:text="laden fragment"/>
+    <!-- eventuell löschen -->
     <FrameLayout
             android:id="@+id/laden_rv_frag_rv_container"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@drawable/rand"
+            android:layout_margin="@dimen/rand_freiraum"
             app:layout_constraintTop_toBottomOf="@id/laden_rv_frag_title"
             app:layout_constraintStart_toStartOf="parent">
         <android.support.v7.widget.RecyclerView
                 android:id="@+id/laden_rv_frag_rv_element"
                 android:layout_width="match_parent"
-                android:layout_height="250dp" />
+                android:layout_height="@dimen/rv_frag_höhe"
+                android:layout_margin="@dimen/rand_freiraum"/>
         <TextView
                 android:id="@+id/laden_rv_frag_empty_rv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Es gibt keine Läden"/>
-
-
-
+                android:layout_margin="@dimen/rand_freiraum"
+                android:text="@string/es_gibt_keine_laeden"/>
     </FrameLayout>
+    <!--<TextView-->
+            <!--android:id="@+id/laden_rv_frag_lbl_view_model_test"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--app:layout_constraintTop_toBottomOf="@id/laden_rv_frag_rv_container"-->
+            <!--app:layout_constraintTop_toTopOf="parent"-->
+            <!--app:layout_constraintStart_toStartOf="parent"-->
+            <!--android:text="laden rv frag shared view model test"/>-->
+    <!--<Button-->
+            <!--android:id="@+id/laden_rv_frag_btn_test_rv_contents"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--app:layout_constraintBottom_toBottomOf="parent"-->
+            <!--app:layout_constraintTop_toTopOf="parent"-->
+            <!--app:layout_constraintStart_toStartOf="parent"-->
+            <!--android:text="test recycler view contents"/>-->
 </android.support.constraint.ConstraintLayout>

@@ -26,7 +26,7 @@ data class LadenModell(var id:Long = -1, var name:String = "Ihr Laden"){
     }
 
     constructor(cursor: Cursor):this() {
-        Log.i(AppKonstante.APP_LOG_TAG, CLASS_LOG_TAG + " Laden aus cursor erstellen")
+//        Log.i(AppKonstante.APP_LOG_TAG, CLASS_LOG_TAG + " Laden aus cursor erstellen")
         try {
             this.id = cursor.getLong(0)
             this.name = cursor.getString(1)
@@ -46,13 +46,34 @@ data class LadenModell(var id:Long = -1, var name:String = "Ihr Laden"){
 
 }
 
-data class WarenModell(val id:Long = -1, var laden:String = "Ihr Laden", var name:String = "Ihre Ware", var menge:Int = 0) {
+data class WarenModell(var id:Long = -1, var laden:Long = -1, var name:String = "Ihre Ware", var menge:Int = 0) {
     companion object {
         const val FELD_WAREN_ID:String = "waren_id"
         const val FELD_WAREN_LADEN:String = "waren_laden"
         const val FELD_WAREN_NAME:String = "waren_name"
         const val FELD_WAREN_MENGE:String = "waren_menge"
         private const val CLASS_LOG_TAG:String = "WarenModell data class"
+    }
+    constructor(cursor: Cursor):this() {
+        try {
+            this.id = cursor.getLong(0)
+            this.laden = cursor.getLong(1)
+            this.name = cursor.getString(2)
+            this.menge = cursor.getInt(3)
+        }
+        catch (ex: java.lang.Exception) {
+            Log.e(AppKonstante.APP_LOG_TAG, CLASS_LOG_TAG + " Fehler Ware aus Cursor erstellen " + ex.message)
+            this.id = -1
+            this.name = "fehler"
+        }
+    }
+    fun contentValues(): ContentValues {
+        Log.i(AppKonstante.APP_LOG_TAG, "$CLASS_LOG_TAG get content values")
+        val contentValues = ContentValues()
+        contentValues.put(FELD_WAREN_LADEN, laden)
+        contentValues.put(FELD_WAREN_NAME, name)
+        contentValues.put(FELD_WAREN_MENGE, menge)
+        return contentValues
     }
 
 }

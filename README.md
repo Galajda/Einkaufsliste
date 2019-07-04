@@ -6,11 +6,13 @@ Diese App zeigt Läden in einer Spalte, Waren des jeweiligen Ladens in einer zwe
 ## Funktion
 So sieht die App jetzt aus.
 Wenn man einen Laden auswählt, werden dessen Waren angezeigt.
-![Ein Laden und seine Waren](Readme Unterstützung/Laden und seine Waren.jpg)
+![Ein Laden und seine Waren](ReadmeUnterstützung/Laden_und_seine_Waren.jpg)
+
 Man kann die RecyclerView mit dem Finger wischen, um Tasten zu enthüllen.
-![Ware wischen und Hintergrund enthüllen](Readme Unterstützung/Ware wischen.jpg)
+![Ware wischen und Hintergrund enthüllen](ReadmeUnterstützung/Ware_wischen.jpg)
+
 Ein Dialogfenster öffnet sich, wo man die Ware ändern kann.
-![Eine Ware verarbeiten](Readme Unterstützung/Ware bearbeiten.jpg)
+![Eine Ware bearbeiten](ReadmeUnterstützung/Ware_bearbeiten.jpg)
 
 ## Anwendung
 Einige Merkmale lassen sich zu anderen Zwecken verwenden.

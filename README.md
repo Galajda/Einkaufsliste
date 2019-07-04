@@ -12,6 +12,7 @@ Man kann die RecyclerView mit dem Finger wischen, um Tasten zu enthüllen.
 ![Ware wischen und Hintergrund enthüllen](ReadmeUnterstützung/Ware_wischen.jpg)
 
 Ein Dialogfenster öffnet sich, wo man die Ware ändern kann.
+
 ![Eine Ware bearbeiten](ReadmeUnterstützung/Ware_bearbeiten.jpg)
 
 

@@ -18,9 +18,9 @@ Ein Dialogfenster öffnet sich, wo man die Ware ändern kann.
 
 ## Anwendung
 Einige Merkmale lassen sich zu anderen Zwecken verwenden.
-  *Fragmente für Übersicht und Einzelheiten (master/detail) kommunizieren über ein ViewModel.
-  *Die RecyclerView enthält eine zwei-schichtige View, die man zur Seite wischen kann, um Tasten auf dem Hintergrund zu betätigen. 
-  *Die üblichen SQLite Datenbankoperationen werden hier auf Kotlin dargestellt. Die Verbindung zur Datenbank wird
+  * Fragmente für Übersicht und Einzelheiten (master/detail) kommunizieren über ein ViewModel.
+  * Die RecyclerView enthält eine zwei-schichtige View, die man zur Seite wischen kann, um Tasten auf dem Hintergrund zu betätigen. 
+  * Die üblichen SQLite Datenbankoperationen werden hier auf Kotlin dargestellt. Die Verbindung zur Datenbank wird
     innerhalb von jeder Funktion auf- und zugeschlossen, um Zusammenstöße zu vermeiden.
 
 ## Beiträge

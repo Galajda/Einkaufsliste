@@ -14,6 +14,7 @@ Man kann die RecyclerView mit dem Finger wischen, um Tasten zu enthüllen.
 Ein Dialogfenster öffnet sich, wo man die Ware ändern kann.
 ![Eine Ware bearbeiten](ReadmeUnterstützung/Ware_bearbeiten.jpg)
 
+
 ## Anwendung
 Einige Merkmale lassen sich zu anderen Zwecken verwenden.
     Fragmente für Übersicht und Einzelheiten (master/detail) kommunizieren über ein ViewModel.
